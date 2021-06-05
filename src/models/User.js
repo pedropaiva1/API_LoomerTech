@@ -26,7 +26,7 @@ class User extends Model{
             msg: "Esse campo não pode ser nulo"
           },
           len: {
-            args: [11],
+            args: [11, 11],
             msg: "Esse campo deve ter 11 caracteres"
           }
         }

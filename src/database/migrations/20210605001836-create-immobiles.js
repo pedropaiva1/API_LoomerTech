@@ -1,7 +1,5 @@
 'use strict';
 
-const { sequelize } = require("../../models/User");
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.createTable('immobiles', { 
@@ -34,7 +32,7 @@ module.exports = {
         allowNull: false
       },
       rent_amount: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false
       },
       number_of_rooms: {
