@@ -23,7 +23,7 @@ class User extends Model{
         unique: true,
         validate: {
           notEmpty: {
-            msg: "Esse campo não pode ser nulo"
+            msg: "Esse campo não pode ser vazio"
           },
           len: {
             args: [11, 11],
@@ -45,7 +45,9 @@ class User extends Model{
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-
+          notEmpty: {
+            msg: "Esse campo não pode ser vazio"
+          }
         }
       }
     }, {

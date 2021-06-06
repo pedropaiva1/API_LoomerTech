@@ -8,8 +8,6 @@ dotenv.config()
 
 const secret = process.env.SECRET
 
-console.log(secret)
-
 function generateToken(params = {}){
   return jwt.sign(params, secret, {
     expiresIn: 86400
