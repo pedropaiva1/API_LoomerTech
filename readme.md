@@ -15,13 +15,13 @@ API LoomerTech - real estate management
 
 ## Participants
 
-| [<img src="https://avatars3.githubusercontent.com/u/10366880?s=460&v=4" width="75px;"/>](https://github.com/pedropaiva1) |
+| [<img src="https://avatars.githubusercontent.com/u/54330692?v=4" width="75px;"/>](https://github.com/pedropaiva1) |
 | :------------------------------------------------------------------------------------------------------------------------: |
 
 
 | [Pedro Paiva](https://github.com/pedropaiva1)
 
-## Téchs
+## Techs
 
 - [x] Node.js
 - [x] Express
