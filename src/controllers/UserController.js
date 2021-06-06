@@ -3,10 +3,15 @@ const bcrypt = require('bcryptjs')
 
 const jwt = require('jsonwebtoken')
 
-const authConfig = require('../config/auth.json')
+const dotenv = require('dotenv')
+dotenv.config()
+
+const secret = process.env.SECRET
+
+console.log(secret)
 
 function generateToken(params = {}){
-  return jwt.sign(params, authConfig.secret, {
+  return jwt.sign(params, secret, {
     expiresIn: 86400
   })
 
@@ -32,7 +37,9 @@ module.exports = {
   async auth(req, res){
 
     try {
-      const { email, password } = req.body
+      const [hashType, hash] = req.headers.authorization.split(' ')
+
+      const [email, password] = Buffer.from(hash, 'base64').toString().split(':')
 
       const user = await User.findOne({ where: { email } });
 
@@ -41,7 +48,7 @@ module.exports = {
       }
       
       const passwordCheck = await bcrypt.compareSync(password, user.password )
-  
+
       if(!passwordCheck) {
         return res.status(401).json({ error: 'Invalid password' })
       }
@@ -93,13 +100,16 @@ module.exports = {
       
       const { user_id } = req.params
       const { name, cpf, email, password } = req.body
+      
+      if(user_id != req.userId){
+        return res.status(401).json({ message: "Operation not allowed for this user" })
+      }
 
       const user = await User.findByPk(user_id)
 
       if(!user) {
         return res.status(404).json({ error: "User not found" })
       }
-
 
       await User.update(
         { 
@@ -123,6 +133,10 @@ module.exports = {
     try {
       const { user_id } = req.params
       const { password } = req.body
+
+      if(user_id != req.userId){
+        return res.status(401).json({ message: "Operation not allowed for this user" })
+      }
 
       const user = await User.findByPk(user_id)
 

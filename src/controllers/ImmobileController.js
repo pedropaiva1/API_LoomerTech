@@ -7,6 +7,10 @@ module.exports = {
     try {
       const { user_id } = req.params
 
+      if(user_id != req.userId){
+        return res.status(401).json({ message: "Operation not allowed for this user" })
+      }
+
       if(!user_id){
         return res.status(400).json({ message: "Missing body param" })
       }
@@ -89,7 +93,12 @@ module.exports = {
       const { user_id } = req.params
       const { immobile_id } = req.params
 
+      if(user_id != req.userId){
+        return res.status(401).json({ message: "Operation not allowed for this user" })
+      }
+
       const user = await User.findByPk(user_id)
+
       if(!user_id || !immobile_id){
         return res.status(400).json({ message: "Missing body param" })
       }
@@ -98,10 +107,10 @@ module.exports = {
         return res.status(404).json({ error: "User not found" })
       }
 
-      const immobileExists = Immobile.findByPk(immobile_id)
+      const immobileExists = await Immobile.findByPk(immobile_id)
 
       if(!immobileExists){
-        return res.status(400).json({ message: "Immobile not exist" })
+        return res.status(400).json({ message: `The immobile ID:${immobile_id} does not exist` })
       }
 
       const { 
@@ -145,6 +154,10 @@ module.exports = {
       const { user_id } = req.params
       const { immobile_id } = req.params
 
+      if(user_id != req.userId){
+        return res.status(401).json({ message: "Operation not allowed for this user" })
+      }
+
       if(!user_id || !immobile_id){
         return res.status(400).json({ message: "Missing router param" })
       }
@@ -155,10 +168,10 @@ module.exports = {
         return res.status(404).json({ message: "User not found" })
       }
 
-      const immobileExists = Immobile.findByPk(immobile_id)
+      const immobileExists = await Immobile.findByPk(immobile_id)
 
       if(!immobileExists){
-        return res.status(400).json({ message: "Immobile not exist" })
+        return res.status(400).json({  message: `The immobile ID:${immobile_id} does not exist` } )
       }
       
       await Immobile.destroy({
