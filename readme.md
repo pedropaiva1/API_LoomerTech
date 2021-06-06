@@ -54,7 +54,7 @@ Field | Description
 **name** | must be between 4 and 11 characters.
 **cpf** | must be 11 characters.
 **email** | must be an email.
-**password** | must be 15 characters.
+**password** |unspecified.
 
 **Empty fields will not be accepted**
 
@@ -89,7 +89,7 @@ Field | Description
 Field | Description
 ------|------------
 **email** | must be an email.
-**password** | must be 15 characters.
+**password** | unspecified.
 
 **Empty fields will not be accepted**
 
@@ -128,7 +128,7 @@ Field | Description
 **name** | must be between 4 and 11 characters.
 **cpf** | must be 11 characters.
 **email** | must be an email.
-**password** | must be 15 characters.
+**password** | unspecified.
 
 **Empty fields will not be accepted**
 
@@ -152,7 +152,7 @@ Field | Description
 
 Field | Description
 ------|------------
-**password** | must be 15 characters.
+**password** | unspecified.
 
 **Empty fields will not be accepted**
 
