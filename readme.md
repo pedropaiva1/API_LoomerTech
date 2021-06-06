@@ -291,6 +291,6 @@ Field | Description
 
 ```javascript
 {
-  "message": "Immobile information updated successfully"
+  "message": "Immobile deleted with successfully"
 }
 ```
