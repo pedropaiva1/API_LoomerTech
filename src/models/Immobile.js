@@ -24,7 +24,7 @@ class Immobile extends Model{
         validate: {
           notEmpty: {
             msg: "Esse campo não pode ser vazio"
-          },
+          }
         }
       },
       complement: {
@@ -34,6 +34,10 @@ class Immobile extends Model{
           notEmpty: {
             msg: "Esse campo não pode ser vazio"
           },
+          len: {
+            args: [0, 200],
+            msg: "Esse campo deve ter entre 0 a 200 caracteres"
+          }
         }
       },
       rent_amount: {

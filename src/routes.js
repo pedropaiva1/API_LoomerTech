@@ -17,7 +17,7 @@ routes.delete('/delete/user/:user_id', authMiddleware, UserController.delete)
 // GROUP Immobiles
 routes.post('/user/:user_id/immobile/', authMiddleware, ImmobileController.create)
 routes.get('/user/:user_id?/immobile/:immobile_id?', authMiddleware, ImmobileController.index)
-routes.put('/update/user/:user_id/immobile/:immobile_id?', authMiddleware, ImmobileController.update)
-routes.delete('/delete/user/:user_id/immobile/:immobile_id?', authMiddleware, ImmobileController.delete)
+routes.put('/update/user/:user_id/immobile/:immobile_id', authMiddleware, ImmobileController.update)
+routes.delete('/delete/user/:user_id/immobile/:immobile_id', authMiddleware, ImmobileController.delete)
 
 module.exports = routes
