@@ -286,7 +286,6 @@ Field | Description
 ### Delete Immobile
 
 `http://localhost:3333/delete/user/:user_id/immobile/:immobile_id` method `DELETE` in `header - "authorization":token`
-```javascript
 
 ### Response 
 
