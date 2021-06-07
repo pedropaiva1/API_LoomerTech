@@ -51,7 +51,7 @@ API LoomerTech - real estate management
 
 Field | Description
 ------|------------
-**name** | must be between 4 and 11 characters.
+**name** | must be between 4 and 20 characters.
 **cpf** | must be 11 characters.
 **email** | must be an email.
 **password** |unspecified.
@@ -125,7 +125,7 @@ Field | Description
 
 Field | Description
 ------|------------
-**name** | must be between 4 and 11 characters.
+**name** | must be between 4 and 20 characters.
 **cpf** | must be 11 characters.
 **email** | must be an email.
 **password** | unspecified.
